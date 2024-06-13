@@ -1,7 +1,7 @@
-import {   UpdateExamenDto } from '../dtos/examen/update-examen.dto';
-import {  CreateExamenDto,  } from '../dtos/examen/Create.examen.dto';
+import {   UpdateCocineroDto } from '../dtos/examen/update-examen.dto';
+import {  CreateCocineroDto,  } from '../dtos/examen/Create.examen.dto';
 
-import { ExamenEntity } from '../entities/examen.entity';
+import { CocineroEntity } from '../entities/examen.entity';
 
 
 
