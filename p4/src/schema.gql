@@ -1,0 +1,79 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Pregunta {
+  id: ID!
+  pregunta: String!
+  categoria: String
+  respuestacorrecta: Boolean!
+  estado: String!
+  insumoEvaluaciones: [InsumoEvaluacion!]
+}
+
+type InsumoEvaluacion {
+  id: ID!
+  pregunta: Pregunta!
+  examen: Examen!
+  valor: Int!
+  estado: String!
+}
+
+type Examen {
+  id: ID!
+  descripcion: String
+  estado: String!
+  insumoEvaluaciones: [InsumoEvaluacion!]
+}
+
+type Query {
+  Examenes(estado: String): [Examen!]!
+  Examen(id: Float!): [Examen!]!
+  preguntas(estado: String): [Pregunta!]!
+  pregunta(id: Float!): Pregunta!
+  INSUMOS(estado: String): InsumoEvaluacion!
+  INSUMO(id: Float!): InsumoEvaluacion!
+}
+
+type Mutation {
+  createexamen(createExamanInput: CreateExamenInput!): Examen!
+  updateexamen(updateExamanInput: UpdateExamanInput!): Examen!
+  removeexamen(id: Float!): Examen!
+  createPregunta(createPreguntaInput: CreatePreguntaInput!): Pregunta!
+  updatePregunta(updatePreguntaInput: UpdatePreguntaInput!): Pregunta!
+  removePregunta(id: Float!): Pregunta!
+  createInsumo(createInsumoevaluacionInput: CreateInsumoEvaluacionInput!): InsumoEvaluacion!
+  updateInsumo(updateInsumoevaluacionInput: UpdateInsumoevaluacionInput!): InsumoEvaluacion!
+  removeIsumo(id: Float!): InsumoEvaluacion!
+}
+
+input CreateExamenInput {
+  descripcion: String
+  estado: String! = "Activo"
+}
+
+input UpdateExamanInput {
+  id: ID!
+}
+
+input CreatePreguntaInput {
+  pregunta: String!
+  categoria: String
+  respuestaCorrecta: Boolean!
+  estado: String! = "Activo"
+}
+
+input UpdatePreguntaInput {
+  id: ID!
+}
+
+input CreateInsumoEvaluacionInput {
+  preguntaId: Int!
+  examenId: Int!
+  valor: Int!
+  estado: String! = "Activo"
+}
+
+input UpdateInsumoevaluacionInput {
+  id: ID!
+}
